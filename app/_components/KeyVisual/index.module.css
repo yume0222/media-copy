@@ -1,0 +1,11 @@
+.keyVisual {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--color-border-primary);
+  background-image: url("/bg-pattern-page-head.png");
+  background-position: center;
+}
+.container {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}

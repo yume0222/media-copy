@@ -1,0 +1,67 @@
+.container {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.cta {
+  padding: 56px 0;
+  background-image: url("/bg-cta-sp.jpg");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+.ctaImage {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.body {
+  margin-top: 24px;
+}
+.logoImage {
+  max-width: 415px;
+  margin: 0 auto;
+}
+.text {
+  margin-top: 12px;
+  color: var(--color-font-white);
+  font-size: 12px;
+  font-weight: bold;
+}
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+@media screen and (min-width: 500px) {
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cta {
+    background-image: url("/bg-cta.jpg");
+    text-align: left;
+  }
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 40%;
+    align-items: center;
+  }
+  .ctaImage {
+    order: 1;
+  }
+  .ctaImage,
+  .body,
+  .logoImage {
+    margin: 0;
+  }
+  .text {
+    font-size: 16px;
+  }
+  .buttonBox {
+    justify-content: flex-start;
+    margin-top: 16px;
+  }
+}

@@ -1,0 +1,26 @@
+.ptb {
+  padding: 56px 0;
+}
+.container {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.text {
+  font-weight: bold;
+  text-align: center;
+}
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .ptb {
+    padding: 64px 0;
+  }
+  .text span {
+    display: block;
+  }
+}
