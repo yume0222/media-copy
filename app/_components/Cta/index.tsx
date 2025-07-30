@@ -1,7 +1,7 @@
-import Button from "../Button";
+import ButtonLink from "../ButtonLink";
 import styles from "./index.module.css";
 import Image from "next/image";
-import buttonStyles from "../Button/index.module.css";
+import buttonLinkStyles from "../ButtonLink/index.module.css";
 
 export default function Cta() {
   return (
@@ -29,13 +29,13 @@ export default function Cta() {
             <p className={styles.text}>
               駆け出しエンジニアのためのコーディング練習教材
             </p>
-            <div className={styles.buttonBox}>
-              <Button
+            <div className={styles.buttonLink}>
+              <ButtonLink
                 href="https://www.google.com/"
-                className={`${buttonStyles.buttonMidium} ${buttonStyles.buttonWhite}`}
+                className={`${buttonLinkStyles.buttonMidium} ${buttonLinkStyles.buttonWhite}`}
               >
                 詳しくはこちら
-              </Button>
+              </ButtonLink>
             </div>
           </div>
         </div>

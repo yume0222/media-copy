@@ -6,7 +6,7 @@ type Props = {
   href: string;
 };
 
-export default function Button({ children, className, href }: Props) {
+export default function ButtonLink({ children, className, href }: Props) {
   return (
     <a
       href={href}

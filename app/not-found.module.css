@@ -10,7 +10,7 @@
   font-weight: bold;
   text-align: center;
 }
-.buttonBox {
+.buttonLink {
   display: flex;
   justify-content: center;
   margin-top: 24px;

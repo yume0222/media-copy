@@ -27,7 +27,7 @@
   font-size: 12px;
   font-weight: bold;
 }
-.buttonBox {
+.buttonLink {
   display: flex;
   justify-content: center;
   margin-top: 24px;
@@ -60,7 +60,7 @@
   .text {
     font-size: 16px;
   }
-  .buttonBox {
+  .buttonLink {
     justify-content: flex-start;
     margin-top: 16px;
   }

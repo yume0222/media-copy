@@ -1,0 +1,25 @@
+.tag {
+  padding: 6px 16px;
+  border-radius: 100vh;
+  color: var(--color-font-white);
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+
+  background-color: var(--color-bg-gold);
+}
+.tagHtmlCss {
+  background-color: var(--color-bg-gold);
+}
+.tagWebProduction {
+  background-color: var(--color-bg-pink);
+}
+.tagWordpress {
+  background-color: var(--color-bg-blue);
+}
+.tagWebDesign {
+  background-color: var(--color-bg-orange);
+}
+.tagJavascript {
+  background-color: var(--color-bg-green);
+}
