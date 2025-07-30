@@ -3,7 +3,8 @@ import Date from "../_components/Date";
 import Category from "../_components/Category";
 import Sheet from "../_components/Sheet";
 import stylesSheet from "../_components/Sheet/index.module.css";
-import { News } from "../_libs/microcms";
+import { getArticleList } from "@/app/_libs/microcms";
+import { TOP_ARTICLE_LIMIT } from "@/app/_constants";
 import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,49 +13,25 @@ type Props = {
   children: React.ReactNode;
 };
 
-const data: { contents: News[] } = {
-  contents: [
-    {
-      id: "1",
-      title: "コーディング基礎から応用までの学習ロードマップ",
-      category: {
-        name: "JavaScript",
-      },
-      publishedAt: "7/29",
-      createdAt: "7/29",
-    },
-    {
-      id: "2",
-      title: "コーディング基礎から応用までの学習ロードマップ2",
-      category: {
-        name: "JavaScript",
-      },
-      publishedAt: "7/29",
-      createdAt: "7/29",
-    },
-    {
-      id: "3",
-      title: "コーディング基礎から応用までの学習ロードマップ3",
-      category: {
-        name: "JavaScript",
-      },
-      publishedAt: "7/29",
-      createdAt: "7/29",
-    },
-  ],
-};
-
-export default function RootLayout({ children }: Props) {
-  const sliceData = data.contents.slice(0, 1);
+export default async function RootLayout({ children }: Props) {
+  const data = await getArticleList({
+    limit: TOP_ARTICLE_LIMIT,
+  });
   return (
     <>
       <div className={styles.top}>
         <div className={styles.container}>
-          {sliceData.map((article) => (
+          {data.contents.map((article) => (
             <div key={article.id} className={styles.inner}>
               <Link href={`/news/${article.id}`} className={styles.link}>
                 <div className={styles.thumbnail}>
-                  <Image src="/thumbnail.png" alt="" width="400" height="569" />
+                  <Image
+                    src={article.thumbnail.url}
+                    alt=""
+                    className={styles.image}
+                    width={article.thumbnail.width}
+                    height={article.thumbnail.height}
+                  />
                 </div>
                 <div className={styles.body}>
                   <Category category={article.category} />
