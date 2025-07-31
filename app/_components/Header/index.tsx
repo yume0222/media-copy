@@ -10,7 +10,7 @@ export default function Header() {
         <div className={styles.container}>
           <div className={styles.inner}>
             <h1>
-              <Link href="/">
+              <Link href="/article">
                 <Image
                   className={styles.image}
                   src="/logo.png"

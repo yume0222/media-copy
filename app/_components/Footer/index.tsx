@@ -10,7 +10,7 @@ export default function Footer() {
         <div className={styles.inner}>
           <div>
             <div className={styles.logo}>
-              <Link href="/">
+              <Link href="/article">
                 <Image
                   className={styles.image}
                   src="/logo.png"

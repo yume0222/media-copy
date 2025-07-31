@@ -21,7 +21,7 @@ export default function NotFound() {
           </span>
         </p>
         <div className={styles.buttonLink}>
-          <ButtonLink href="/" className={buttonLinkStyles.buttonMedium}>
+          <ButtonLink href="/article" className={buttonLinkStyles.buttonMedium}>
             トップへ
           </ButtonLink>
         </div>
