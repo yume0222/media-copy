@@ -7,15 +7,16 @@ import Date from "../Date";
 
 type Props = {
   article: Article[];
+  className?: string;
 };
 
-export default function ArticleList({ article }: Props) {
+export default function ArticleList({ article, className }: Props) {
   if (article.length === 0) {
     return <p>記事がありません。</p>;
   }
   return (
     <>
-      <ul className={styles.list}>
+      <ul className={`${styles.list} ${className || ""}`}>
         {article.map((article) => (
           <li key={article.id}>
             <Link href={`/article/${article.id}`}>

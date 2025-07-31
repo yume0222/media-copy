@@ -1,29 +1,30 @@
+import { getArticleList } from "@/app/_libs/microcms";
+import { TOP_ARTICLE_LIMIT, ARTICLE_LIMIT } from "@/app/_constants";
+import ArticleList from "../_components/ArticleList";
+import stylesArticleList from "../_components/ArticleList/index.module.css";
 import Cta from "../_components/Cta";
-import Date from "../_components/Date";
-import Category from "../_components/Category";
 import Sheet from "../_components/Sheet";
 import stylesSheet from "../_components/Sheet/index.module.css";
-import { getArticleList } from "@/app/_libs/microcms";
-import { TOP_ARTICLE_LIMIT } from "@/app/_constants";
-import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./page.module.css";
+import Date from "../_components/Date";
+import Category from "../_components/Category";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export default async function RootLayout({ children }: Props) {
-  const data = await getArticleList({
+export default async function Article() {
+  const topData = await getArticleList({
     limit: TOP_ARTICLE_LIMIT,
+  });
+  const data = await getArticleList({
+    limit: ARTICLE_LIMIT,
   });
   return (
     <>
       <div className={styles.top}>
         <div className={styles.container}>
-          {data.contents.map((article) => (
+          {topData.contents.map((article) => (
             <div key={article.id} className={styles.inner}>
-              <Link href={`/news/${article.id}`} className={styles.link}>
+              <Link href={`/article/${article.id}`} className={styles.link}>
                 <div className={styles.thumbnail}>
                   <Image
                     src={article.thumbnail.url}
@@ -56,7 +57,9 @@ export default async function RootLayout({ children }: Props) {
           <Image src="/img-kv-treat.png" alt="" width="500" height="172" />
         </div>
       </div>
-      <Sheet className={stylesSheet.container}>{children}</Sheet>
+      <Sheet className={stylesSheet.container}>
+        <ArticleList article={data.contents} className={stylesArticleList.grid} />
+      </Sheet>
       <Cta />
     </>
   );

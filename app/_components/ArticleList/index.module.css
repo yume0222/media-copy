@@ -35,7 +35,7 @@
 }
 
 @media screen and (min-width: 1080px) {
-  .list {
+  .grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }

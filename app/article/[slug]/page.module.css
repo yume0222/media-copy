@@ -1,0 +1,30 @@
+.banner {
+  display: block;
+  margin-top: 24px;
+}
+.recommend {
+  margin-top: 56px;
+}
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.title::before {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto;
+  background: url("/icon-mosha.png") no-repeat center / contain;
+  transform: translateY(-50%);
+}
+.article {
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .recommend {
+    margin-top: 64px;
+  }
+}
