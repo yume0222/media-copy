@@ -1,25 +1,40 @@
 import { getArticleList } from "@/app/_libs/microcms";
 import { TOP_ARTICLE_LIMIT, ARTICLE_LIMIT } from "@/app/_constants";
-import ArticleList from "../_components/ArticleList";
-import stylesArticleList from "../_components/ArticleList/index.module.css";
-import Cta from "../_components/Cta";
-import Sheet from "../_components/Sheet";
-import stylesSheet from "../_components/Sheet/index.module.css";
+import ArticleList from "@/app/_components/ArticleList";
+import stylesArticleList from "@/app/_components/ArticleList/index.module.css";
+import Cta from "@/app/_components/Cta";
+import Sheet from "@/app/_components/Sheet";
+import stylesSheet from "@/app/_components/Sheet/index.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
-import Date from "../_components/Date";
-import Category from "../_components/Category";
-import Pagination from "../_components/Pagination";
+import Date from "@/app/_components/Date";
+import Category from "@/app/_components/Category";
+import { notFound } from "next/navigation";
+import Pagination from "@/app/_components/Pagination";
 
-export default async function Article() {
+type Props = {
+  params: {
+    current: string;
+  };
+};
+
+export default async function Page({ params }: Props) {
   const { contents: topArticle } = await getArticleList({
     limit: TOP_ARTICLE_LIMIT,
   });
+  const current = parseInt(params.current, 10);
+  if (Number.isNaN(current) || current < 1) {
+    notFound();
+  }
   const { contents: article, totalCount } = await getArticleList({
     limit: ARTICLE_LIMIT,
+    offset: ARTICLE_LIMIT * (current - 1),
   });
-  
+  if (article.length === 0) {
+    notFound();
+  }
+
   return (
     <>
       <div className={styles.top}>
@@ -61,7 +76,7 @@ export default async function Article() {
       </div>
       <Sheet className={stylesSheet.container}>
         <ArticleList article={article} className={stylesArticleList.grid} />
-        <Pagination totalCount={totalCount} />
+        <Pagination totalCount={totalCount} current={current} />
       </Sheet>
       <Cta />
     </>

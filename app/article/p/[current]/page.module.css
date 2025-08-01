@@ -1,0 +1,93 @@
+.top {
+  position: relative;
+  padding: 56px 0 8px;
+  background-image: url("/bg-pattern-kv.png");
+}
+.container {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.inner {
+  position: relative;
+  z-index: var(--z-index-default);
+}
+.link {
+  display: block;
+  border: 1px solid var(--color-border-primary);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.body {
+  padding: 16px;
+  background-color: var(--color-bg-white);
+}
+.title {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.date {
+  margin-top: 10px;
+  text-align: right;
+}
+.character {
+  width: 40%;
+  max-width: 200px;
+  margin-left: auto; 
+}
+.treat {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 180px;
+}
+
+@media screen and (min-width: 768px) {
+  .top {
+    padding: 40px 0;
+  }
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 40px;
+    align-items: center;
+  }
+  .link {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .thumbnail {
+    order: 1;
+  }
+  .body {
+    padding: 24px;
+  }
+  .title {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .date {
+    margin-top: 48px;
+  }
+  .character {
+    width: 100%;
+    max-width: none;
+  }
+  .treat {
+    bottom: 25px;
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .body {
+    padding: 58px 48px;
+  }
+}
