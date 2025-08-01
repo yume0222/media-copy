@@ -1,6 +1,5 @@
 import ButtonLink from "./_components/ButtonLink";
 import KeyVisual from "./_components/KeyVisual";
-import titleStyles from "./_components/Title/index.module.css";
 import buttonLinkStyles from "./_components/ButtonLink/index.module.css";
 import styles from "./not-found.module.css";
 import Cta from "./_components/Cta";
@@ -10,7 +9,7 @@ import stylesSheet from "./_components/Sheet/index.module.css";
 export default function NotFound() {
   return (
     <>
-      <KeyVisual className={titleStyles.titleCenter}>404 エラー</KeyVisual>
+      <KeyVisual>404 エラー</KeyVisual>
       <Sheet className={stylesSheet.containerSmall}>
         <p className={styles.text}>
           <span>
