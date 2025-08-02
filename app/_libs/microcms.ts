@@ -63,6 +63,12 @@ export const getArticleDetail = async (
     endpoint: 'article',
     contentId,
     queries,
+    // データ単位でキャッシュを制御
+    customRequestInit: {
+      next: {
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
+      },
+    },
   });
   return detailData;
 };
@@ -78,4 +84,20 @@ export const getCategoryDetail = async (
     queries,
   });
   return detailData;
+};
+
+// 記事のコンテンツを全て取得する関数
+export const getAllArticleList = async () => {
+  const listData = await client.getAllContents<Article>({
+    endpoint: 'article',
+  });
+  return listData;
+};
+
+// カテゴリーのコンテンツを全て取得する関数
+export const getAllCategoryList = async () => {
+  const listData = await client.getAllContents<Category>({
+    endpoint: 'categories',
+  });
+  return listData;
 };

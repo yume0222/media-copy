@@ -28,7 +28,6 @@ export default function Article({ data }: Props) {
         />
       </div>
       <p className={styles.desc}>{data.description}</p>
-
       <div className={styles.contents}>
         <h2 className={styles.subtitle}>{data.subtitle1}</h2>
         <p className={styles.text}>{data.subtitle1_text}</p>

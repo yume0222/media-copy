@@ -14,6 +14,7 @@ export default function ArticleList({ article, className }: Props) {
   if (article.length === 0) {
     return <p>記事がありません。</p>;
   }
+  
   return (
     <>
       <ul className={`${styles.list} ${className || ""}`}>

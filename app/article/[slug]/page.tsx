@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from "next/navigation";
 import Article from "@/app/_components/Article";
 import Sheet from "@/app/_components/Sheet";
@@ -13,10 +14,34 @@ type Props = {
     slug: string;
     id: string;
   };
+  searchParams: {
+    dk?: string;
+  };
 };
 
-export default async function Page({ params }: Props) {
-  const data = await getArticleDetail(params.slug).catch(notFound);
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
+  const data = await getArticleDetail(params.slug, {
+    draftKey: searchParams.dk,
+  });
+
+  return {
+    title: data.title,
+    description: data.description,
+    openGraph: {
+      title: data.title,
+      description: data.description,
+      images: [data?.thumbnail?.url ?? ''],
+    },
+  };
+}
+
+export default async function Page({ params, searchParams }: Props) {
+  const data = await getArticleDetail(params.slug, {
+    draftKey: searchParams.dk,
+  }).catch(notFound);
   const { contents: recommend } = await getArticleList({
     filters: `category[equals]${data.category.id}`,
   });

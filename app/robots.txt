@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://media-copy.vercel.app/sitemap.xml
