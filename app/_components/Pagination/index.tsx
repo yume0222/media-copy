@@ -1,4 +1,4 @@
-import { ARTICLE_LIMIT } from "@/app/_constants";
+import { ARTICLE_LIST_LIMIT } from "@/app/_constants";
 import styles from "./index.module.css";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ export default function Pagination({
   basePath = "/article",
 }: Props) {
   const pages = Array.from(
-    { length: Math.ceil(totalCount / ARTICLE_LIMIT) },
+    { length: Math.ceil(totalCount / ARTICLE_LIST_LIMIT) },
     (_, i) => i + 1
   );
 

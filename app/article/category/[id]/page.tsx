@@ -4,7 +4,7 @@ import Sheet from "@/app/_components/Sheet";
 import stylesSheet from "@/app/_components/Sheet/index.module.css";
 import { getCategoryDetail, getArticleList } from "@/app/_libs/microcms";
 import { notFound } from "next/navigation";
-import { ARTICLE_LIMIT } from "@/app/_constants";
+import { ARTICLE_LIST_LIMIT } from "@/app/_constants";
 import Cta from "@/app/_components/Cta";
 import Pagination from "@/app/_components/Pagination";
 
@@ -17,7 +17,7 @@ type Props = {
 export default async function Page({ params }: Props) {
   const category = await getCategoryDetail(params.id).catch(notFound);
   const { contents: article, totalCount } = await getArticleList({
-    limit: ARTICLE_LIMIT,
+    limit: ARTICLE_LIST_LIMIT,
     filters: `category[equals]${category.id}`,
   });
 

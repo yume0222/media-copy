@@ -1,5 +1,5 @@
 import { getArticleList } from "@/app/_libs/microcms";
-import { TOP_ARTICLE_LIMIT, ARTICLE_LIMIT } from "@/app/_constants";
+import { TOP_ARTICLE_LIMIT, ARTICLE_LIST_LIMIT } from "@/app/_constants";
 import ArticleList from "@/app/_components/ArticleList";
 import stylesArticleList from "@/app/_components/ArticleList/index.module.css";
 import Cta from "@/app/_components/Cta";
@@ -28,8 +28,8 @@ export default async function Page({ params }: Props) {
     notFound();
   }
   const { contents: article, totalCount } = await getArticleList({
-    limit: ARTICLE_LIMIT,
-    offset: ARTICLE_LIMIT * (current - 1),
+    limit: ARTICLE_LIST_LIMIT,
+    offset: ARTICLE_LIST_LIMIT * (current - 1),
   });
   if (article.length === 0) {
     notFound();

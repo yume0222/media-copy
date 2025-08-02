@@ -1,5 +1,5 @@
 import { getArticleList } from "@/app/_libs/microcms";
-import { TOP_ARTICLE_LIMIT, ARTICLE_LIMIT } from "@/app/_constants";
+import { TOP_ARTICLE_LIMIT, ARTICLE_LIST_LIMIT } from "@/app/_constants";
 import ArticleList from "../_components/ArticleList";
 import stylesArticleList from "../_components/ArticleList/index.module.css";
 import Cta from "../_components/Cta";
@@ -17,7 +17,7 @@ export default async function Article() {
     limit: TOP_ARTICLE_LIMIT,
   });
   const { contents: article, totalCount } = await getArticleList({
-    limit: ARTICLE_LIMIT,
+    limit: ARTICLE_LIST_LIMIT,
   });
   
   return (
