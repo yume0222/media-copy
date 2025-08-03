@@ -21,8 +21,8 @@ export default function Header() {
               </Link>
             </h1>
             <SnsIcon />
-          </div>{/* .headerInner */}
-        </div>{/* .container */}
+          </div>
+        </div>
       </header>
       <nav className={styles.nav}>
         <div className={styles.container}>
