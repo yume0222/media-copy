@@ -40,7 +40,7 @@ export default async function Article() {
                   <Category category={article.category} />
                   <h2 className={styles.title}>{article.title}</h2>
                   <p className={styles.date}>
-                    . <Date date={article.publishedAt ?? article.createdAt} />
+                    <Date date={article.publishedAt ?? article.createdAt} />
                   </p>
                 </div>
               </Link>
