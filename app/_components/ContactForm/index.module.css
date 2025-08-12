@@ -51,6 +51,10 @@
   font-size: 14px;
   text-align: center;
 }
+.button {
+  display: flex;
+  justify-content: center;
+}
 
 @media screen and (min-width: 768px) {
   .item {

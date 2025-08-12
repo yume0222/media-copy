@@ -2,19 +2,32 @@ import styles from "./index.module.css";
 
 type Props = {
   children: React.ReactNode;
+  href?: string; // あればリンク、なければボタン
+  type?: "button" | "submit" | "reset";
   className?: string;
-  href: string;
+  target?: string;
+  rel?: string;
 };
 
-export default function ButtonLink({ children, className, href }: Props) {
+export default function Button({
+  children,
+  href,
+  type,
+  className,
+  target,
+  rel,
+}: Props) {
+  const classes = `${styles.button} ${className}`;
+  if (href) {
+    return (
+      <a href={href} className={classes} target={target} rel={rel}>
+        {children}
+      </a>
+    );
+  }
   return (
-    <a
-      href={href}
-      className={`${styles.button} ${className || ""}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <button type={type} className={classes}>
       {children}
-    </a>
+    </button>
   );
 }

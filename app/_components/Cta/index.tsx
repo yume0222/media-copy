@@ -33,6 +33,8 @@ export default function Cta() {
               <ButtonLink
                 href="https://www.google.com/"
                 className={`${buttonLinkStyles.buttonMidium} ${buttonLinkStyles.buttonWhite}`}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 詳しくはこちら
               </ButtonLink>

@@ -3,6 +3,8 @@
 import { createContactData } from "@/app/_actions/contact";
 import { useFormState } from "react-dom";
 import styles from "./index.module.css";
+import ButtonLink from "../ButtonLink";
+import ButtonLinkStyles from "../ButtonLink/index.module.css";
 
 const initialState = {
   status: "",
@@ -68,7 +70,11 @@ export default function ContactForm() {
         {state.status === "error" && (
           <p className={styles.error}>{state.message}</p>
         )}
-        <input type="submit" value="送信する" className={styles.button} />
+        <div className={styles.button}>
+          <ButtonLink type="submit" className={ButtonLinkStyles.buttonMedium}>
+            送信する
+          </ButtonLink>
+        </div>
       </div>
     </form>
   );
