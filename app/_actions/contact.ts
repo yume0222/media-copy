@@ -17,7 +17,7 @@ export async function createContactData(_prevState: any, formData: FormData) {
   if (!rawFormData.company) {
     return {
       status: "error",
-      message: "会社名を入力してください",
+      message: "法人名を入力してください",
     };
   }
   if (!rawFormData.lastname) {
