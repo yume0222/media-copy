@@ -4,7 +4,7 @@ import Header from "./_components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://media-copy.vercel.app/'),
+  metadataBase: new URL('https://media-copy.vercel.app'),
   title: {
     template: '%s | 模写修行メディアのコーディング',
     default: '模写修行メディアのコーディング',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     images: ['/ogp.png'],
   },
   alternates: {
-    canonical: 'https://media-copy.vercel.app/',
+    canonical: 'https://media-copy.vercel.app',
   },
 };
 
