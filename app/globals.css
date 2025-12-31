@@ -19,11 +19,6 @@
   --z-index-default: 1;
 }
 
-html {
-  color: #000;
-  background: #fff;
-}
-
 body,
 div,
 dl,
@@ -183,13 +178,6 @@ svg {
   box-sizing: border-box;
 }
 
-body {
-  line-height: 1.75;
-  font-size: 14px;
-  color: var(--color-font-base);
-  font-family: var(--font-family-base);
-}
-
 .u-visually-hidden {
   position: absolute !important;
   white-space: nowrap !important;
@@ -201,6 +189,23 @@ body {
   clip: rect(0 0 0 0) !important;
   clip-path: inset(50%) !important;
   margin: -1px !important;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.75;
+  font-size: 14px;
+  color: var(--color-font-base);
+  font-family: var(--font-family-base);
+}
+
+.content {
+  flex: 1;
 }
 
 @media screen and (min-width: 768px) {
